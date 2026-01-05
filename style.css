@@ -1,0 +1,221 @@
+:root {
+    --bg-color: #8CC461; 
+    --primary-text: #ffffff;
+    --outline-color: #ffffff;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--primary-text);
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* --- SCOREBOARD LAYOUT --- */
+.scoreboard {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid var(--outline-color);
+    border-radius: 15px;
+    width: 800px; /* Adjust width as needed */
+    padding: 20px;
+    margin-top: 40px;
+    margin-bottom: 60px;
+}
+
+.game-title {
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1.2;
+    text-align: left;
+    letter-spacing: 2px;
+}
+
+.score-container {
+    display: flex;
+    gap: 20px;
+}
+
+.score-box {
+    background: white;
+    color: #656565;
+    border-radius: 10px;
+    width: 140px;
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.score-label {
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+}
+
+.score-number {
+    font-size: 60px;
+    margin: 0;
+    color: #333;
+    font-weight: 700;
+}
+
+/* --- GAME TRIANGLE LAYOUT --- */
+.game-area {
+    position: relative;
+    width: 400px;
+    height: 350px;
+    display: flex;
+    justify-content: center;
+}
+
+/* The Triangle Lines Background */
+.triangle-bg {
+    position: relative;
+    width: 300px;
+    height: 250px;
+    margin-top: 50px;
+    z-index: 0;
+}
+/* You can replace these lines with a triangle image exported from Figma */
+.line {
+    position: absolute;
+    background: rgba(0,0,0,0.6);
+    height: 15px;
+    width: 100%;
+}
+.line-1 { transform: rotate(60deg); top: 80px; left: -60px; width: 260px; }
+.line-2 { transform: rotate(-60deg); top: 80px; right: -60px; width: 260px; }
+.line-3 { bottom: 30px; width: 260px; left: 20px; }
+
+/* Positioning the Buttons */
+.choice-btn {
+    position: absolute;
+    z-index: 10;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+.choice-btn:hover { transform: scale(1.1); }
+
+/* Coordinates for the Triangle */
+.rock-pos { top: 0; left: 0; }
+.scissors-pos { top: 0; right: 0; }
+.paper-pos { bottom: 0; left: 50%; transform: translateX(-50%); }
+
+.circle {
+    width: 140px;
+    height: 140px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: inset 0px 5px 8px rgba(0,0,0,0.2);
+    border: 18px solid; 
+}
+.circle img { width: 60px; }
+
+.rock-border { border-color: #0074B6; }
+.scissors-border { border-color: #BD00FF; }
+.paper-border { border-color: #FFA943; }
+
+/* --- RESULT AREA --- */
+.result-area {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    margin-top: 50px;
+}
+.pick-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+.pick-container p {
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    z-index: 2;
+}
+
+.result-message {
+    text-align: center;
+}
+.result-message h1 {
+    font-size: 50px;
+    margin-bottom: 5px;
+}
+.play-again-btn {
+    padding: 15px 40px;
+    border-radius: 10px;
+    border: none;
+    background: white;
+    color: #6B6B6B;
+    font-size: 18px;
+    letter-spacing: 2px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+.play-again-btn:hover { color: black; }
+
+/* --- WINNER ANIMATION (Ripples) --- */
+.winner-animation {
+    box-shadow: 0 0 0 40px rgba(40, 160, 40, 0.5), 
+                0 0 0 80px rgba(40, 160, 40, 0.3), 
+                0 0 0 130px rgba(40, 160, 40, 0.1);
+}
+
+/* --- BOTTOM BUTTONS --- */
+.bottom-controls {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    display: flex;
+    gap: 20px;
+}
+.rules-btn, .next-btn {
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+    padding: 10px 30px;
+    border-radius: 10px;
+    font-size: 18px;
+    letter-spacing: 2px;
+    cursor: pointer;
+}
+
+/* --- RULES MODAL --- */
+.rules-modal {
+    position: absolute;
+    bottom: 80px;
+    right: 30px;
+    background: #004429;
+    border: 3px solid white;
+    border-radius: 15px;
+    padding: 20px 30px;
+    width: 280px;
+}
+.close-btn {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    background: red;
+    border: 3px solid white;
+    color: white;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    cursor: pointer;
+}
+.hidden { display: none !important; }

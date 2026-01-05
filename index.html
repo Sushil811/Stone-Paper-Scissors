@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="scoreboard">
+        <div class="game-title">
+            ROCK <br> PAPER <br> SCISSORS
+        </div>
+        <div class="score-container">
+            <div class="score-box">
+                <span class="score-label">COMPUTER<br>SCORE</span>
+                <h1 id="computer-score" class="score-number">0</h1>
+            </div>
+            <div class="score-box">
+                <span class="score-label">YOUR<br>SCORE</span>
+                <h1 id="user-score" class="score-number">0</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="game-area" id="game-board">
+        <div class="triangle-bg">
+            <div class="line line-1"></div>
+            <div class="line line-2"></div>
+            <div class="line line-3"></div>
+        </div>
+
+        <div class="choice-btn rock-pos" onclick="playGame('rock')">
+            <div class="circle rock-border">
+                <img src="./assets/rock.png" alt="Rock">
+            </div>
+        </div>
+        <div class="choice-btn scissors-pos" onclick="playGame('scissors')">
+            <div class="circle scissors-border">
+                <img src="./assets/scissors.png" alt="Scissors">
+            </div>
+        </div>
+        <div class="choice-btn paper-pos" onclick="playGame('paper')">
+            <div class="circle paper-border">
+                <img src="./assets/paper.png" alt="Paper">
+            </div>
+        </div>
+    </div>
+
+    <div class="result-area hidden" id="results-board">
+        <div class="pick-container">
+            <p>YOU PICKED</p>
+            <div class="circle" id="user-pick-img"></div>
+        </div>
+        
+        <div class="result-message">
+            <h1 id="winner-text">YOU WIN</h1>
+            <p>AGAINST PC</p>
+            <button class="play-again-btn" onclick="resetGame()">PLAY AGAIN</button>
+        </div>
+
+        <div class="pick-container">
+            <p>PC PICKED</p>
+            <div class="circle" id="pc-pick-img"></div>
+        </div>
+    </div>
+
+    <div class="hurray-area hidden" id="hurray-board">
+        <img src="./assets/trophy.png" alt="Trophy" class="trophy-img"> <h1>HURRAY!!</h1>
+        <p>YOU WON THE GAME</p>
+        <button class="play-again-btn" onclick="resetGame()">PLAY AGAIN</button>
+    </div>
+
+    <div class="bottom-controls">
+        <button class="rules-btn" onclick="toggleRules()">RULES</button>
+        <button class="next-btn hidden" id="next-btn" onclick="showHurray()">NEXT</button>
+    </div>
+
+    <div class="rules-modal hidden" id="rules-modal">
+        <button class="close-btn" onclick="toggleRules()">X</button>
+        <h3>Game Rules</h3>
+        <ul>
+            <li>Rock beats Scissors, beats Paper.</li>
+            <li>Paper beats Rock, loses to Scissors.</li>
+            <li>Scissors beats Paper, loses to Rock.</li>
+        </ul>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
