@@ -30,7 +30,7 @@
             <div class="line line-2"></div>
             <div class="line line-3"></div>
         </div>
-
+        
         <div class="choice-btn rock-pos" onclick="playGame('rock')">
             <div class="circle rock-border">
                 <img src="./assets/rock.png" alt="Rock">
@@ -51,36 +51,44 @@
     <div class="result-area hidden" id="results-board">
         <div class="pick-container">
             <p>YOU PICKED</p>
-            <div class="circle" id="user-pick-img"></div>
+            <div class="circle-wrapper" id="user-pick-wrapper">
+                <div class="circle" id="user-pick-img"></div>
+            </div>
         </div>
         
         <div class="result-message">
             <h1 id="winner-text">YOU WIN</h1>
-            <p>AGAINST PC</p>
+            <p id="sub-text">AGAINST PC</p>
             <button class="play-again-btn" onclick="resetGame()">PLAY AGAIN</button>
         </div>
 
         <div class="pick-container">
             <p>PC PICKED</p>
-            <div class="circle" id="pc-pick-img"></div>
+            <div class="circle-wrapper" id="pc-pick-wrapper">
+                <div class="circle" id="pc-pick-img"></div>
+            </div>
         </div>
     </div>
 
     <div class="hurray-area hidden" id="hurray-board">
-        <img src="./assets/trophy.png" alt="Trophy" class="trophy-img"> <h1>HURRAY!!</h1>
-        <p>YOU WON THE GAME</p>
+        <div class="hurray-images">
+            <img src="./assets/stars.png" alt="stars" class="stars-img">
+            <img src="./assets/trophy.png" alt="trophy" class="trophy-img">
+        </div>
+        <h1 class="hurray-text">HURRAY!!</h1>
+        <p class="hurray-sub">YOU WON THE GAME</p>
         <button class="play-again-btn" onclick="resetGame()">PLAY AGAIN</button>
     </div>
 
-    <div class="bottom-controls">
+    <div class="btn-group">
         <button class="rules-btn" onclick="toggleRules()">RULES</button>
-        <button class="next-btn hidden" id="next-btn" onclick="showHurray()">NEXT</button>
+        <button class="next-btn hidden" id="next-btn" onclick="showHurrayPage()">NEXT</button>
     </div>
 
     <div class="rules-modal hidden" id="rules-modal">
         <button class="close-btn" onclick="toggleRules()">X</button>
         <h3>Game Rules</h3>
-        <ul>
+        <ul class="rules-list">
             <li>Rock beats Scissors, beats Paper.</li>
             <li>Paper beats Rock, loses to Scissors.</li>
             <li>Scissors beats Paper, loses to Rock.</li>
